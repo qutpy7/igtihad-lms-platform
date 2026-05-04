@@ -4,7 +4,7 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosError } from 'axios'
 
 // @ts-ignore
-const apiUrl: string = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const apiUrl: string = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5000/api')
 
 export const apiClient: AxiosInstance = axios.create({
     baseURL: apiUrl,

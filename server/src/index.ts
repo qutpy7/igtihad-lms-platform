@@ -105,6 +105,11 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
     });
 });
 
-app.listen(Number(port), '0.0.0.0', () => {
-    logger.info(`🚀 Server is running on http://0.0.0.0:${port}`);
-});
+// Only listen if not running in a serverless environment
+if (process.env.NODE_ENV !== 'production' || !process.env.NETLIFY) {
+    app.listen(Number(port), '0.0.0.0', () => {
+        logger.info(`🚀 Server is running on http://0.0.0.0:${port}`);
+    });
+}
+
+export { app };
