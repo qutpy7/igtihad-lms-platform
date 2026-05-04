@@ -1,0 +1,91 @@
+[2026-05-04 05:29:47] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:29:47] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"12ms"}
+[2026-05-04 05:31:40] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:31:40] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"3ms"}
+[2026-05-04 05:33:02] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:33:02] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"3ms"}
+[2026-05-04 05:35:16] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:35:16] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"2ms"}
+[2026-05-04 05:35:44] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:35:44] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"4ms"}
+[2026-05-04 05:38:02] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:38:02] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"18ms"}
+[2026-05-04 05:38:28] ERROR: Only images and PDF files are allowed! {"service":"igtihad-api"}
+Error: Only images and PDF files are allowed!
+    at fileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\src\routes\upload.ts:38:23)
+    at wrappedFileFilter (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:219:14)
+    at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
+[2026-05-04 05:38:28] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"3ms"}

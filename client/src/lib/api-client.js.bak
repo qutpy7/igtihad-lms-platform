@@ -1,0 +1,44 @@
+import axios from 'axios';
+
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+export const apiClient = axios.create({
+    baseURL: apiUrl,
+    timeout: 10000, // 10 seconds timeout
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+
+// Interceptor to add the JWT token to requests
+apiClient.interceptors.request.use(
+    (config) => {
+        // 🔒 Security Fix: Only log in development, never log request body (may contain passwords)
+        if (import.meta.env.DEV) {
+            console.log(`🚀 API: ${config.method?.toUpperCase()} ${config.url}`);
+        }
+        const token = localStorage.getItem('auth_token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        if (import.meta.env.DEV) {
+            console.error('❌ API Request Error:', error.message);
+        }
+        return Promise.reject(error);
+    }
+);
+
+// Interceptor to handle 401 Unauthorized responses (e.g., token expired)
+apiClient.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response && error.response.status === 401) {
+            localStorage.removeItem('auth_token');
+            // Optionally redirect to login page here, though AuthContext is better suited
+        }
+        return Promise.reject(error);
+    }
+);

@@ -1,0 +1,8 @@
+# Winston logs
+logs/
+*.log
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/

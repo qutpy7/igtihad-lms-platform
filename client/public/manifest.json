@@ -1,0 +1,40 @@
+{
+  "name": "منصة اجتهاد التعليمية",
+  "short_name": "اجتهاد",
+  "description": "منصة تعليمية متكاملة للطلاب والأساتذة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F0FF",
+  "theme_color": "#7C3AED",
+  "dir": "rtl",
+  "lang": "ar",
+  "orientation": "portrait-primary",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "كورساتي",
+      "url": "/student",
+      "description": "عرض الكورسات المشترك بها"
+    },
+    {
+      "name": "كل الكورسات",
+      "url": "/courses",
+      "description": "تصفح الكورسات المتاحة"
+    }
+  ]
+}
