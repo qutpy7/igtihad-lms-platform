@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: igtihad-api
+    name: igtihad-server
     env: node
     rootDir: server
     buildCommand: npm install && npm run build
@@ -9,8 +9,10 @@ services:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
-        generateValue: true
-      - key: PORT
-        value: 10000
+        value: your_jwt_secret_key_2026
+      - key: ADMIN_SECRET
+        value: secure_admin_key_2026
+      - key: DATABASE_URL
+        value: postgresql://postgres.chorqgtqrpdqqhhesjpc:Judimylove11%23@aws-0-eu-west-1.pooler.supabase.com:5432/postgres
       - key: CLIENT_URL
-        value: https://igtihad.netlify.app # سيتم تغييره لاحقاً برابط الفرونت إند الحقيقي
+        value: https://igtihad-lms-platform-123.netlify.app
