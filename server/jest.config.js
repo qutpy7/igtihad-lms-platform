@@ -19,6 +19,7 @@ module.exports = {
         'src/routes/**/*.ts',
         'src/middleware/**/*.ts',
         'src/validators/**/*.ts',
+        'src/utils/**/*.ts',
         '!src/**/*.d.ts',
     ],
 };
