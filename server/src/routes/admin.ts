@@ -71,8 +71,8 @@ router.post('/codes/generate', validate(generateCodesSchema), async (req, res) =
             while (exists) {
                 // Generate a professional code: IGT-XXXX-XXXX
                 const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-                const p1 = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
-                const p2 = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+                const p1 = Array.from({ length: 4 }, () => chars[crypto.randomInt(chars.length)]).join('');
+                const p2 = Array.from({ length: 4 }, () => chars[crypto.randomInt(chars.length)]).join('');
                 code = `IGT-${p1}-${p2}`;
                 
                 const existing = await db.get('SELECT id FROM access_codes WHERE code = ?', [code]);
