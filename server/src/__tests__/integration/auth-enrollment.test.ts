@@ -14,6 +14,11 @@ import { open, Database } from 'sqlite';
 import sqlite3 from 'sqlite3';
 import bcrypt from 'bcrypt';
 import path from 'path';
+jest.mock('../../utils/sse', () => ({
+    sseMiddleware: jest.fn((req, res, next) => next()),
+    notifyClients: jest.fn()
+}));
+
 
 // ─── App Setup (isolated test instance) ───────────────────────
 let db: Database<sqlite3.Database, sqlite3.Statement>;

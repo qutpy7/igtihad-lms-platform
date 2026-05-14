@@ -38,6 +38,11 @@ import authRoutes from '../../routes/auth';
 import quizRoutes from '../../routes/quizzes';
 import adminRoutes from '../../routes/admin';
 import studentRoutes from '../../routes/students';
+jest.mock('../../utils/sse', () => ({
+    sseMiddleware: jest.fn((req, res, next) => next()),
+    notifyClients: jest.fn()
+}));
+
 
 beforeAll(async () => {
     db = await open({ filename: ':memory:', driver: sqlite3.Database });
@@ -292,7 +297,7 @@ describe('Admin Dashboard', () => {
 
         expect(res.status).toBe(200);
         expect(res.body).toHaveProperty('totalStudents');
-        expect(res.body).toHaveProperty('totalCourses');
+        expect(res.body).toHaveProperty('activeCourses');
         expect(res.body).toHaveProperty('totalRevenue');
     });
 

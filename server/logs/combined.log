@@ -1155,3 +1155,11 @@ Error: Only images and PDF files are allowed!
 [2026-05-04 13:35:23] INFO: GET /api/courses/lessons/1/context {"service":"igtihad-api","method":"GET","url":"/api/courses/lessons/1/context","status":304,"duration":"25ms"}
 [2026-05-04 13:35:26] INFO: PUT /api/students/02590459-302f-4d2a-8dd1-105e42bdcab4/notifications/read {"service":"igtihad-api","method":"PUT","url":"/api/students/02590459-302f-4d2a-8dd1-105e42bdcab4/notifications/read","status":200,"duration":"6ms"}
 [2026-05-04 13:38:51] INFO: 🚀 Server is running on http://0.0.0.0:5000 {"service":"igtihad-api"}
+[2026-05-13 23:47:21] INFO: 🚀 Server is running on http://0.0.0.0:5000 {"service":"igtihad-api"}
+[2026-05-13 23:47:21] ERROR: GET /api/courses {"service":"igtihad-api","method":"GET","url":"/api/courses","status":500,"duration":"39ms"}
+[2026-05-13 23:53:49] INFO: 🚀 Server is running on http://0.0.0.0:5000 {"service":"igtihad-api"}
+[2026-05-13 23:53:49] ERROR: GET /api/courses {"service":"igtihad-api","method":"GET","url":"/api/courses","status":500,"duration":"46ms"}
+[2026-05-14 00:00:45] INFO: 🚀 Server is running on http://0.0.0.0:5000 {"service":"igtihad-api"}
+[2026-05-14 00:00:45] ERROR: GET /api/courses {"service":"igtihad-api","method":"GET","url":"/api/courses","status":500,"duration":"45ms"}
+[2026-05-14 00:07:31] INFO: 🚀 Server is running on http://0.0.0.0:5000 {"service":"igtihad-api"}
+[2026-05-14 00:07:31] ERROR: GET /api/courses {"service":"igtihad-api","method":"GET","url":"/api/courses","status":500,"duration":"39ms"}
