@@ -12,4 +12,4 @@ yarn-debug.log*
 yarn-error.log*
 .vercel
 .netlify
-server/coverage
+server/coverage/
