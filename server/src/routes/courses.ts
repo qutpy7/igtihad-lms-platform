@@ -292,11 +292,27 @@ router.post('/lessons/reorder', authenticate, requireRole('admin'), async (req, 
         const db = await getDb();
         const { lessons } = req.body; // array of {id, sort_order}
         
-        await db.exec('BEGIN TRANSACTION');
-        for (const lesson of lessons) {
-            await db.run('UPDATE lessons SET sort_order = ? WHERE id = ?', [lesson.sort_order, lesson.id]);
+        if (lessons && lessons.length > 0) {
+            const ids = lessons.map((l: any) => l.id);
+            const cases = lessons.map(() => `WHEN ? THEN ?`).join(' ');
+            const caseArgs = lessons.flatMap((l: any) => [l.id, l.sort_order]);
+            const placeholders = ids.map(() => '?').join(',');
+
+            const query = `
+                UPDATE lessons
+                SET sort_order = CASE id
+                    ${cases}
+                    ELSE sort_order
+                END
+                WHERE id IN (${placeholders})
+            `;
+
+            const args = [...caseArgs, ...ids];
+
+            await db.exec('BEGIN TRANSACTION');
+            await db.run(query, args);
+            await db.exec('COMMIT');
         }
-        await db.exec('COMMIT');
         
         notifyClients('courses');
         res.json({ success: true });
