@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/78</span>
+                <span class='fraction'>0/81</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/72</span>
             </div>
         
             
@@ -189,7 +189,19 @@
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -198,28 +210,36 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -318,6 +338,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Router } from 'express';</span>
 <span class="cstat-no" title="statement not covered" >import { getDb } from '../config/db';</span>
 <span class="cstat-no" title="statement not covered" >import { authenticate, requireRole } from '../middleware/auth';</span>
+<span class="cstat-no" title="statement not covered" >import { validate } from '../middleware/validate';</span>
+<span class="cstat-no" title="statement not covered" >import { generateCodesSchema, sendNotificationSchema } from '../validators/admin';</span>
 <span class="cstat-no" title="statement not covered" >import { notifyClients } from '../utils/sse';</span>
 import crypto from 'crypto';
 &nbsp;
@@ -330,11 +352,17 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
         const db = <span class="cstat-no" title="statement not covered" >await getDb();</span>
         const studentsRow = <span class="cstat-no" title="statement not covered" >await db.get("SELECT count(*) as count FROM users WHERE role = 'student'");</span>
         const coursesRow = <span class="cstat-no" title="statement not covered" >await db.get("SELECT count(*) as count FROM courses WHERE is_active = 1 AND deleted_at IS NULL");</span>
-        const revenueRow = <span class="cstat-no" title="statement not covered" >await db.get("SELECT sum(amount) as total FROM wallet_transactions WHERE type = 'purchase' AND amount &lt; 0");</span>
+        const codesRow = <span class="cstat-no" title="statement not covered" >await db.get("SELECT count(*) as count FROM access_codes WHERE status = 'used'");</span>
+        const revenueRow = <span class="cstat-no" title="statement not covered" >await db.get(`</span>
+            SELECT SUM(c.price) as total
+            FROM enrollments e
+            JOIN courses c ON e.course_id = c.id
+        `);
         
 <span class="cstat-no" title="statement not covered" >        res.json({</span>
             totalStudents: studentsRow?.count || 0,
-            totalCourses: coursesRow?.count || 0,
+            activeCourses: coursesRow?.count || 0,
+            activatedCodes: codesRow?.count || 0,
             totalRevenue: Math.abs(revenueRow?.total || 0)
         });
     } catch (error) {
@@ -350,7 +378,9 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
             FROM access_codes ac
             LEFT JOIN courses c ON ac.course_id = c.id
             LEFT JOIN users u ON ac.student_id = u.id
+            WHERE ac.status != 'deleted'
             ORDER BY ac.created_at DESC
+            LIMIT 1000
         `);
 <span class="cstat-no" title="statement not covered" >        res.json(codes.map(<span class="fstat-no" title="function not covered" >c </span>=&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
             ...c,
@@ -362,7 +392,7 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
     }
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >router.post('/codes/generate', <span class="fstat-no" title="function not covered" >async </span>(req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >router.post('/codes/generate', validate(generateCodesSchema), <span class="fstat-no" title="function not covered" >async </span>(req, res) =&gt; {</span>
     let db;
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >        db = await getDb();</span>
@@ -402,7 +432,7 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
 <span class="cstat-no" title="statement not covered" >router.delete('/codes/:id', <span class="fstat-no" title="function not covered" >async </span>(req, res) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
         const db = <span class="cstat-no" title="statement not covered" >await getDb();</span>
-<span class="cstat-no" title="statement not covered" >        await db.run('DELETE FROM access_codes WHERE id = ?', [req.params.id]);</span>
+<span class="cstat-no" title="statement not covered" >        await db.run('UPDATE access_codes SET status = "deleted" WHERE id = ?', [req.params.id]);</span>
 <span class="cstat-no" title="statement not covered" >        notifyClients('admin');</span>
 <span class="cstat-no" title="statement not covered" >        res.json({ success: true });</span>
     } catch (error) {
@@ -410,7 +440,7 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
     }
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >router.post('/notifications/send', <span class="fstat-no" title="function not covered" >async </span>(req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >router.post('/notifications/send', validate(sendNotificationSchema), <span class="fstat-no" title="function not covered" >async </span>(req, res) =&gt; {</span>
     let db;
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >        db = await getDb();</span>
@@ -448,7 +478,7 @@ const router = <span class="cstat-no" title="statement not covered" >Router();</
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-04T01:06:08.958Z
+                at 2026-05-14T01:11:41.165Z
             </div>
         <script src="../prettify.js"></script>
         <script>

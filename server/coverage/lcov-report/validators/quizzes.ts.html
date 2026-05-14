@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for validators/students.ts</title>
+    <title>Code coverage report for validators/quizzes.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -15,41 +15,41 @@
         }
     </style>
 </head>
-    
+
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">validators</a> students.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">validators</a> quizzes.ts</h1>
         <div class='clearfix'>
-            
+
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/5</span>
             </div>
-        
-            
+
+
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>0/0</span>
             </div>
-        
-            
+
+
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>0/0</span>
             </div>
-        
-            
+
+
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/5</span>
             </div>
-        
-            
+
+
         </div>
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
@@ -129,25 +129,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,62 +143,81 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* ═══════════════════════════════════════════════════
-   Joi Validators — Students &amp; Enrollments
+   Joi Validators — Quizzes &amp; Results
    ═══════════════════════════════════════════════════ */
 <span class="cstat-no" title="statement not covered" >import Joi from 'joi'</span>
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >enrollSchema = Joi.object({</span>
+export const <span class="cstat-no" title="statement not covered" >createQuizSchema = Joi.object({</span>
+    title: Joi.string().trim().min(2).max(200).required().messages({
+        'any.required': 'عنوان الاختبار مطلوب',
+    }),
     course_id: Joi.number().integer().positive().required().messages({
-        'number.base': 'معرف الكورس يجب أن يكون رقم',
         'any.required': 'معرف الكورس مطلوب',
     }),
-    price: Joi.number().integer().min(0).default(0),
-    duration_days: Joi.number().integer().positive().optional(),
-})
-&nbsp;
-export const <span class="cstat-no" title="statement not covered" >redeemSchema = Joi.object({</span>
-    code: Joi.string().trim().min(3).max(50).required().messages({
-        'string.min': 'الكود يجب أن يكون 3 أحرف على الأقل',
-        'any.required': 'كود التفعيل مطلوب',
+    duration: Joi.number().integer().min(1).max(300).default(30).messages({
+        'number.max': 'مدة الاختبار لا يمكن أن تتجاوز 300 دقيقة',
     }),
+    scheduled_date: Joi.string().optional().allow('', null),
+    is_active: Joi.alternatives().try(Joi.boolean(), Joi.number().valid(0, 1)).default(true),
+    allow_retake: Joi.alternatives().try(Joi.boolean(), Joi.number().valid(0, 1)).default(true),
 })
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >progressSchema = Joi.object({</span>
-    lesson_id: Joi.number().integer().positive().required().messages({
-        'any.required': 'معرف الدرس مطلوب',
-    }),
-})
-&nbsp;
-export const <span class="cstat-no" title="statement not covered" >profileUpdateSchema = Joi.object({</span>
-    full_name: Joi.string().min(2).max(100).optional(),
-    phone: Joi.string().pattern(/^[0-9+\-\s]{8,20}$/).optional().messages({
-        'string.pattern.base': 'رقم الهاتف غير صالح',
-    }),
-    grade: Joi.string().optional(),
-    governorate: Joi.string().optional(),
-    avatar_url: Joi.string().uri().optional(),
-}).min(1).messages({
-    'object.min': 'يجب إرسال حقل واحد على الأقل للتحديث',
-})
-&nbsp;
-export const <span class="cstat-no" title="statement not covered" >questionSchema = Joi.object({</span>
-    lesson_id: Joi.number().integer().positive().required(),
-    question: Joi.string().trim().min(3).max(1000).required().messages({
-        'string.min': 'السؤال يجب أن يكون 3 أحرف على الأقل',
+export const <span class="cstat-no" title="statement not covered" >createQuizQuestionSchema = Joi.object({</span>
+    question: Joi.string().trim().min(3).max(2000).required().messages({
         'any.required': 'نص السؤال مطلوب',
     }),
+    options: Joi.array().items(Joi.string()).min(2).max(6).required().messages({
+        'array.min': 'يجب إضافة خيارين على الأقل',
+        'any.required': 'الخيارات مطلوبة',
+    }),
+    correct_answer: Joi.number().integer().min(0).default(0),
+    sort_order: Joi.number().integer().min(0).default(0),
 })
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >answerSchema = Joi.object({</span>
-    answer: Joi.string().trim().min(1).max(2000).required().messages({
-        'any.required': 'نص الإجابة مطلوب',
+export const <span class="cstat-no" title="statement not covered" >createLessonQuestionSchema = Joi.object({</span>
+    lesson_id: Joi.number().integer().positive().required(),
+    question: Joi.string().trim().min(3).max(2000).required(),
+    options: Joi.array().items(Joi.string()).min(2).max(6).required(),
+    correct_answer: Joi.number().integer().min(0).default(0),
+    sort_order: Joi.number().integer().min(0).default(0),
+})
+&nbsp;
+export const <span class="cstat-no" title="statement not covered" >submitResultSchema = Joi.object({</span>
+    student_id: Joi.string().optional(), // Overridden by server with req.user.id
+    lesson_id: Joi.number().integer().positive().optional().allow(null),
+    quiz_id: Joi.number().integer().positive().optional().allow(null),
+    score: Joi.number().integer().min(0).required().messages({
+        'any.required': 'الدرجة مطلوبة',
     }),
+    total: Joi.number().integer().min(1).required().messages({
+        'any.required': 'الدرجة الكلية مطلوبة',
+    }),
+    answers: Joi.array().optional().default([]),
 })
 &nbsp;</pre></td></tr></table></pre>
 
@@ -238,4 +238,3 @@ export const <span class="cstat-no" title="statement not covered" >answerSchema 
         <script src="../block-navigation.js"></script>
     </body>
 </html>
-    

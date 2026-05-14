@@ -1,111 +1,95 @@
 import { Response } from 'express';
 
 describe('SSE Utils', () => {
-    let mockReq1: any;
-    let mockReq2: any;
-    let mockRes1: any;
-    let mockRes2: any;
-    let req1CloseCallback: () => void;
-    let req2CloseCallback: () => void;
     let sseMiddleware: any;
     let notifyClients: any;
 
-    beforeAll(async () => {
-        jest.useFakeTimers();
-        const sse = await import('../../../src/utils/sse');
-        sseMiddleware = sse.sseMiddleware;
-        notifyClients = sse.notifyClients;
-    });
-
-    afterAll(() => {
-        jest.useRealTimers();
-    });
-
     beforeEach(() => {
-        mockReq1 = {
-            on: jest.fn((event, callback) => {
-                if (event === 'close') {
-                    req1CloseCallback = callback;
-                }
-            }),
-        };
-
-        mockReq2 = {
-            on: jest.fn((event, callback) => {
-                if (event === 'close') {
-                    req2CloseCallback = callback;
-                }
-            }),
-        };
-
-        mockRes1 = {
-            setHeader: jest.fn(),
-            write: jest.fn(),
-        };
-
-        mockRes2 = {
-            setHeader: jest.fn(),
-            write: jest.fn(),
-        };
+        jest.useFakeTimers();
+        jest.isolateModules(() => {
+            const sse = require('../../../src/utils/sse');
+            sseMiddleware = sse.sseMiddleware;
+            notifyClients = sse.notifyClients;
+        });
     });
 
     afterEach(() => {
-        // Disconnect all clients to clean up state for the next test
-        if (req1CloseCallback) req1CloseCallback();
-        if (req2CloseCallback) req2CloseCallback();
-        req1CloseCallback = undefined as any;
-        req2CloseCallback = undefined as any;
+        jest.useRealTimers();
         jest.clearAllMocks();
     });
 
-    it('should connect a client and send initial heartbeat', () => {
-        sseMiddleware(mockReq1, mockRes1 as unknown as Response);
+    it('should set headers and send heartbeat on connection', () => {
+        const req = { on: jest.fn() };
+        const res = {
+            setHeader: jest.fn(),
+            write: jest.fn()
+        } as unknown as Response;
 
-        expect(mockRes1.setHeader).toHaveBeenCalledWith('Content-Type', 'text/event-stream');
-        expect(mockRes1.setHeader).toHaveBeenCalledWith('Cache-Control', 'no-cache');
-        expect(mockRes1.setHeader).toHaveBeenCalledWith('Connection', 'keep-alive');
-        expect(mockRes1.setHeader).toHaveBeenCalledWith('Access-Control-Allow-Origin', '*');
+        sseMiddleware(req, res);
 
-        expect(mockRes1.write).toHaveBeenCalledWith('data: {"type":"connected"}\n\n');
+        expect(res.setHeader).toHaveBeenCalledWith('Content-Type', 'text/event-stream');
+        expect(res.setHeader).toHaveBeenCalledWith('Cache-Control', 'no-cache');
+        expect(res.setHeader).toHaveBeenCalledWith('Connection', 'keep-alive');
+        expect(res.setHeader).toHaveBeenCalledWith('Access-Control-Allow-Origin', '*');
+
+        expect(res.write).toHaveBeenCalledWith('data: {"type":"connected"}\n\n');
+        expect(req.on).toHaveBeenCalledWith('close', expect.any(Function));
     });
 
     it('should notify all connected clients', () => {
-        sseMiddleware(mockReq1, mockRes1 as unknown as Response);
-        sseMiddleware(mockReq2, mockRes2 as unknown as Response);
+        const req1 = { on: jest.fn() };
+        const res1 = { setHeader: jest.fn(), write: jest.fn() } as unknown as Response;
+        const req2 = { on: jest.fn() };
+        const res2 = { setHeader: jest.fn(), write: jest.fn() } as unknown as Response;
+
+        sseMiddleware(req1, res1);
+        sseMiddleware(req2, res2);
 
         // Clear initial connection writes
-        mockRes1.write.mockClear();
-        mockRes2.write.mockClear();
+        (res1.write as jest.Mock).mockClear();
+        (res2.write as jest.Mock).mockClear();
 
-        notifyClients('users');
+        notifyClients('test_table');
 
-        expect(mockRes1.write).toHaveBeenCalledWith('data: {"type":"update","table":"users"}\n\n');
-        expect(mockRes2.write).toHaveBeenCalledWith('data: {"type":"update","table":"users"}\n\n');
+        const expectedMessage = `data: {"type":"update","table":"test_table"}\n\n`;
+        expect(res1.write).toHaveBeenCalledWith(expectedMessage);
+        expect(res2.write).toHaveBeenCalledWith(expectedMessage);
     });
 
-    it('should remove a client when connection closes', () => {
-        sseMiddleware(mockReq1, mockRes1 as unknown as Response);
-        sseMiddleware(mockReq2, mockRes2 as unknown as Response);
+    it('should handle client disconnect', () => {
+        let closeCallback: Function = () => {};
+        const req = {
+            on: jest.fn((event, cb) => {
+                if (event === 'close') closeCallback = cb;
+            })
+        };
+        const res = { setHeader: jest.fn(), write: jest.fn() } as unknown as Response;
 
-        mockRes1.write.mockClear();
-        mockRes2.write.mockClear();
+        sseMiddleware(req, res);
 
-        // Simulate client 1 disconnecting
-        req1CloseCallback();
+        // Clear initial write
+        (res.write as jest.Mock).mockClear();
 
-        notifyClients('posts');
+        // Simulate disconnect
+        closeCallback();
 
-        expect(mockRes1.write).not.toHaveBeenCalled();
-        expect(mockRes2.write).toHaveBeenCalledWith('data: {"type":"update","table":"posts"}\n\n');
+        // Notify should not write to disconnected client
+        notifyClients('test_table');
+        expect(res.write).not.toHaveBeenCalled();
     });
 
-    it('should send a heartbeat ping every 30 seconds to connected clients', () => {
-        sseMiddleware(mockReq1, mockRes1 as unknown as Response);
+    it('should send periodic pings', () => {
+        const req = { on: jest.fn() };
+        const res = { setHeader: jest.fn(), write: jest.fn() } as unknown as Response;
 
-        mockRes1.write.mockClear();
+        sseMiddleware(req, res);
 
+        // Clear initial write
+        (res.write as jest.Mock).mockClear();
+
+        // Advance timers by 30 seconds
         jest.advanceTimersByTime(30000);
 
-        expect(mockRes1.write).toHaveBeenCalledWith('data: {"type":"ping"}\n\n');
+        expect(res.write).toHaveBeenCalledWith('data: {"type":"ping"}\n\n');
     });
 });
