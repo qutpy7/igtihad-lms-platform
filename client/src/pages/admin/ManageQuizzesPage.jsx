@@ -108,6 +108,7 @@ export default function ManageQuizzesPage() {
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-black" style={HEADING}>بنك الأسئلة </h1>
           <button 
+            aria-label="تحديث قائمة الامتحانات"
             onClick={loadData}
             className="p-2 rounded-xl hover:bg-clay-accent/5 text-clay-accent transition-colors flex items-center gap-2 text-xs font-bold"
             title="تحديث القائمة"
@@ -178,7 +179,7 @@ export default function ManageQuizzesPage() {
                 <ClayButton size="sm" variant="outline" onClick={() => setExpandedQuiz(isExpanded ? null : quiz.id)}>
                   {isExpanded ? 'إخفاء الأسئلة ▲' : `عرض الأسئلة ▼ (${questions.length})`}
                 </ClayButton>
-                <button onClick={() => handleDeleteQuiz(quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف"><Trash2 size={16} /></button>
+                <button aria-label="حذف الامتحان" onClick={() => handleDeleteQuiz(quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف"><Trash2 size={16} /></button>
               </div>
 
               {isExpanded && (
@@ -200,7 +201,7 @@ export default function ManageQuizzesPage() {
                             ))}
                           </div>
                           <div className="flex gap-1 mt-2 justify-end">
-                            <button onClick={() => handleDeleteQuestion(q.id, quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100"><Trash2 size={16} /></button>
+                            <button aria-label="حذف السؤال" onClick={() => handleDeleteQuestion(q.id, quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100"><Trash2 size={16} /></button>
                           </div>
                         </div>
                         )
