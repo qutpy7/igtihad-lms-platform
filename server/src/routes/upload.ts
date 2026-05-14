@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import crypto from 'crypto';
 import { authenticate, AuthRequest } from '../middleware/auth';
 
 const router = Router();
@@ -16,7 +17,7 @@ const storage = multer.diskStorage({
         cb(null, uploadDir);
     },
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const uniqueSuffix = Date.now() + '-' + crypto.randomBytes(16).toString('hex');
         cb(null, uniqueSuffix + path.extname(file.originalname));
     }
 });

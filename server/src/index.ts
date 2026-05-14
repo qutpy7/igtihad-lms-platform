@@ -30,8 +30,8 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow requests with no origin (mobile apps, Postman, server-to-server)
-        if (!origin || allowedOrigins.includes(origin)) {
+        // Allow requests with no origin in development only (mobile apps, Postman, server-to-server)
+        if ((!origin && isDev) || allowedOrigins.includes(origin || '')) {
             callback(null, true);
         } else {
             callback(new Error(`Origin ${origin} not allowed by CORS`));
