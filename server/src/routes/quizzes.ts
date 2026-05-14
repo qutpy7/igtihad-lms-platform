@@ -144,7 +144,10 @@ router.put('/lesson/:id', authenticate, requireRole('admin'), async (req, res) =
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates).filter(k => k !== 'id');
+
+        const allowedFields = ['question', 'options', 'correct_answer', 'sort_order'];
+        const keys = Object.keys(updates).filter(k => allowedFields.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');

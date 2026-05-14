@@ -99,8 +99,9 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
         const db = await getDb();
         const updates = req.body;
         
-        // Dynamic query builder
-        const keys = Object.keys(updates);
+        const allowedFields = ['title', 'description', 'short_desc', 'grade', 'term', 'price', 'original_price', 'color', 'thumbnail_url', 'is_featured', 'is_active'];
+        const keys = Object.keys(updates).filter(k => allowedFields.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
         
         // Add updated_at
@@ -189,7 +190,9 @@ router.put('/units/:unitId', authenticate, requireRole('admin'), async (req, res
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+        const allowedFields = ['title', 'sort_order', 'thumbnail_url'];
+        const keys = Object.keys(updates).filter(k => allowedFields.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
@@ -252,7 +255,9 @@ router.put('/lessons/:lessonId', authenticate, requireRole('admin'), async (req,
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+        const allowedFields = ['title', 'type', 'content_url', 'attachment_url', 'content', 'duration', 'sort_order', 'thumbnail_url', 'allow_retake'];
+        const keys = Object.keys(updates).filter(k => allowedFields.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
