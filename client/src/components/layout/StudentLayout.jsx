@@ -113,6 +113,7 @@ export default function StudentLayout() {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setSidebarOpen(true)}
+            aria-label="Toggle mobile menu"
             className="lg:hidden w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent"
           >
             <Menu size={24} />
@@ -124,6 +125,7 @@ export default function StudentLayout() {
           <div className="relative">
             <button
               onClick={handleOpenNotif}
+              aria-label="Notifications"
               className="w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent hover:bg-clay-accent/20 transition-colors relative"
             >
               <Bell size={20} />

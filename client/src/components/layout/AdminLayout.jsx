@@ -87,6 +87,7 @@ export default function AdminLayout() {
         <header className="sticky top-0 z-30 bg-white/60 backdrop-blur-xl border-b border-white/50 px-4 sm:px-8 h-16 flex items-center justify-between">
           <button
             onClick={() => setSidebarOpen(true)}
+            aria-label="Toggle mobile menu"
             className="lg:hidden w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent"
           >
             <Menu size={24} />

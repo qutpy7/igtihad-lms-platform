@@ -64,15 +64,15 @@ router.post('/codes/generate', validate(generateCodesSchema), async (req, res) =
         
         await db.exec('BEGIN TRANSACTION');
         const generatedCodes = [];
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
         
         for (let i = 0; i < limit; i++) {
             let code;
             let exists = true;
             while (exists) {
-                // Generate a professional code: IGT-XXXX-XXXX
-                const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-                const p1 = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
-                const p2 = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+                // Generate a professional code: IGT-XXXX-XXXX (e.g., IGT-A7X9-B3K2)
+                const p1 = Array.from({ length: 4 }, () => chars[crypto.randomInt(0, chars.length)]).join('');
+                const p2 = Array.from({ length: 4 }, () => chars[crypto.randomInt(0, chars.length)]).join('');
                 code = `IGT-${p1}-${p2}`;
                 
                 const existing = await db.get('SELECT id FROM access_codes WHERE code = ?', [code]);
