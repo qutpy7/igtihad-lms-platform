@@ -5,6 +5,23 @@ import { validate } from '../middleware/validate';
 import { createCourseSchema, createUnitSchema, createLessonSchema, reviewSchema } from '../validators/courses';
 import { notifyClients } from '../utils/sse';
 
+const ALLOWED_COURSE_UPDATES = [
+    'title', 'description', 'short_desc', 'grade', 'term',
+    'price', 'original_price', 'color', 'thumbnail_url',
+    'is_featured', 'is_active', 'deleted_at', 'created_at', 'updated_at'
+];
+
+const ALLOWED_UNIT_UPDATES = [
+    'course_id', 'title', 'sort_order', 'thumbnail_url',
+    'deleted_at', 'created_at'
+];
+
+const ALLOWED_LESSON_UPDATES = [
+    'unit_id', 'title', 'type', 'content_url', 'attachment_url',
+    'content', 'duration', 'sort_order', 'thumbnail_url',
+    'allow_retake', 'deleted_at', 'created_at'
+];
+
 const router = Router();
 
 // --- Courses ---
@@ -100,7 +117,7 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
         const updates = req.body;
         
         // Dynamic query builder
-        const keys = Object.keys(updates);
+        const keys = Object.keys(updates).filter(k => ALLOWED_COURSE_UPDATES.includes(k));
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
         
         // Add updated_at
@@ -189,7 +206,7 @@ router.put('/units/:unitId', authenticate, requireRole('admin'), async (req, res
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+        const keys = Object.keys(updates).filter(k => ALLOWED_UNIT_UPDATES.includes(k));
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
@@ -252,7 +269,7 @@ router.put('/lessons/:lessonId', authenticate, requireRole('admin'), async (req,
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+        const keys = Object.keys(updates).filter(k => ALLOWED_LESSON_UPDATES.includes(k));
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
