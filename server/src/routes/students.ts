@@ -37,7 +37,9 @@ router.put('/profile/:id', authenticate, async (req, res) => {
         
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates).filter(k => !['id', 'password_hash', 'role', 'balance'].includes(k)); // prevent restricted updates
+
+        const ALLOWED_FIELDS = ['email', 'full_name', 'phone', 'avatar_url', 'grade', 'governorate'];
+        const keys = Object.keys(updates).filter(k => ALLOWED_FIELDS.includes(k)); // prevent restricted updates
         
         if (keys.length === 0) return res.status(400).json({ error: 'No valid fields' });
 
