@@ -72,6 +72,7 @@ export default function PublicLayout() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle mobile menu"
             className="md:hidden w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent"
           >
             {mobileOpen ? '✕' : '☰'}
@@ -161,11 +162,11 @@ export default function PublicLayout() {
               <div className="flex gap-3">
               {/* ✅ FIX #18: Social media links */}
               {[
-                { icon: <FaFacebook size={20} />, url: 'https://facebook.com/igthad' },
-                { icon: <FaYoutube size={20} />, url: 'https://youtube.com/@igthad' },
-                { icon: <Send size={20} />, url: 'https://t.me/igthad' }
+                { icon: <FaFacebook size={20} />, url: 'https://facebook.com/igthad', label: 'Facebook' },
+                { icon: <FaYoutube size={20} />, url: 'https://youtube.com/@igthad', label: 'YouTube' },
+                { icon: <Send size={20} />, url: 'https://t.me/igthad', label: 'Telegram' }
               ].map((item, i) => (
-                <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" 
+                <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={item.label}
                    className="w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent hover:bg-clay-accent/20 transition-colors">
                   {item.icon}
                 </a>
