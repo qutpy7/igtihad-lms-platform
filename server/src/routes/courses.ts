@@ -99,9 +99,15 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
         const db = await getDb();
         const updates = req.body;
         
-        // Dynamic query builder
-        const keys = Object.keys(updates);
-        if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
+        // Securely whitelist allowed columns to prevent SQL injection
+        const allowedColumns = [
+            'title', 'description', 'short_desc', 'grade', 'term',
+            'price', 'original_price', 'color', 'thumbnail_url',
+            'is_featured', 'is_active'
+        ];
+        const keys = Object.keys(updates).filter(k => allowedColumns.includes(k));
+
+        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
         
         // Add updated_at
         keys.push('updated_at');
@@ -189,8 +195,12 @@ router.put('/units/:unitId', authenticate, requireRole('admin'), async (req, res
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
-        if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
+
+        // Securely whitelist allowed columns to prevent SQL injection
+        const allowedColumns = ['course_id', 'title', 'sort_order', 'thumbnail_url'];
+        const keys = Object.keys(updates).filter(k => allowedColumns.includes(k));
+
+        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
         const values = keys.map(k => updates[k]);
@@ -252,8 +262,15 @@ router.put('/lessons/:lessonId', authenticate, requireRole('admin'), async (req,
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
-        if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
+
+        // Securely whitelist allowed columns to prevent SQL injection
+        const allowedColumns = [
+            'unit_id', 'title', 'type', 'content_url', 'attachment_url',
+            'content', 'duration', 'sort_order', 'thumbnail_url', 'allow_retake'
+        ];
+        const keys = Object.keys(updates).filter(k => allowedColumns.includes(k));
+
+        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
         const values = keys.map(k => updates[k]);

@@ -37,9 +37,12 @@ router.put('/profile/:id', authenticate, async (req, res) => {
         
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates).filter(k => !['id', 'password_hash', 'role', 'balance'].includes(k)); // prevent restricted updates
         
-        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields' });
+        // Securely whitelist allowed columns to prevent SQL injection and unauthorized updates
+        const allowedColumns = ['email', 'full_name', 'phone', 'avatar_url', 'grade', 'governorate'];
+        const keys = Object.keys(updates).filter(k => allowedColumns.includes(k));
+
+        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
         const values = keys.map(k => updates[k]);

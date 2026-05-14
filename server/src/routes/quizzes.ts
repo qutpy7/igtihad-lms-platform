@@ -144,8 +144,12 @@ router.put('/lesson/:id', authenticate, requireRole('admin'), async (req, res) =
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates).filter(k => k !== 'id');
-        if (keys.length === 0) return res.status(400).json({ error: 'No fields' });
+
+        // Securely whitelist allowed columns to prevent SQL injection
+        const allowedColumns = ['lesson_id', 'question', 'options', 'correct_answer', 'sort_order'];
+        const keys = Object.keys(updates).filter(k => allowedColumns.includes(k));
+
+        if (keys.length === 0) return res.status(400).json({ error: 'No valid fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
         const values = keys.map(k => k === 'options' ? JSON.stringify(updates[k]) : updates[k]);
