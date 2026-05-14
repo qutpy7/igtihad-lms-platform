@@ -12,3 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 .vercel
 .netlify
+test-results/
+playwright-report/
+coverage/
+logs/
