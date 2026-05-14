@@ -99,8 +99,9 @@ router.put('/:id', authenticate, requireRole('admin'), async (req, res) => {
         const db = await getDb();
         const updates = req.body;
         
-        // Dynamic query builder
-        const keys = Object.keys(updates);
+        const ALLOWED_FIELDS = ['title', 'description', 'short_desc', 'grade', 'term', 'price', 'original_price', 'color', 'cover_url', 'is_featured', 'is_active'];
+        const keys = Object.keys(updates).filter(k => ALLOWED_FIELDS.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
         
         // Add updated_at
@@ -189,7 +190,10 @@ router.put('/units/:unitId', authenticate, requireRole('admin'), async (req, res
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+
+        const ALLOWED_FIELDS = ['title', 'sort_order', 'thumbnail_url'];
+        const keys = Object.keys(updates).filter(k => ALLOWED_FIELDS.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');
@@ -197,7 +201,7 @@ router.put('/units/:unitId', authenticate, requireRole('admin'), async (req, res
         values.push(req.params.unitId);
 
         await db.run(`UPDATE units SET ${setClause} WHERE id = ?`, values);
-        const updated = await db.get(`SELECT * FROM ${req.path.includes('units') ? 'units' : 'lessons'} WHERE id = ?`, [req.params.unitId || req.params.lessonId]);
+        const updated = await db.get(`SELECT * FROM units WHERE id = ?`, [req.params.unitId]);
         notifyClients('courses');
         res.json(updated);
     } catch (error) {
@@ -252,7 +256,10 @@ router.put('/lessons/:lessonId', authenticate, requireRole('admin'), async (req,
     try {
         const db = await getDb();
         const updates = req.body;
-        const keys = Object.keys(updates);
+
+        const ALLOWED_FIELDS = ['title', 'type', 'content_url', 'attachment_url', 'content', 'duration', 'sort_order', 'thumbnail_url', 'allow_retake'];
+        const keys = Object.keys(updates).filter(k => ALLOWED_FIELDS.includes(k));
+
         if (keys.length === 0) return res.status(400).json({ error: 'No fields to update' });
 
         const setClause = keys.map(k => `${k} = ?`).join(', ');

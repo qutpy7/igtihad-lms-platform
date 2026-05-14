@@ -18,6 +18,7 @@
 
 import winston from 'winston';
 import path from 'path';
+import { Request, Response, NextFunction } from 'express';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -73,7 +74,7 @@ if (isDev) {
 }
 
 // HTTP request logger middleware for Express
-export function httpLogger(req: any, res: any, next: any) {
+export function httpLogger(req: Request, res: Response, next: NextFunction) {
     const start = Date.now();
     
     res.on('finish', () => {
