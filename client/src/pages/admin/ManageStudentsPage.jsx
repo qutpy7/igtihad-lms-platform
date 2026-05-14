@@ -128,6 +128,7 @@ export default function ManageStudentsPage() {
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-black" style={HEADING}>إدارة الطلاب </h1>
           <button 
+            aria-label="تحديث قائمة الطلاب"
             onClick={loadData}
             className="p-2 rounded-xl hover:bg-clay-accent/5 text-clay-accent transition-colors flex items-center gap-2 text-xs font-bold"
             title="تحديث القائمة"
@@ -193,6 +194,7 @@ export default function ManageStudentsPage() {
         {totalPages > 1 && (
           <div className="flex items-center gap-2">
             <button
+              aria-label="الصفحة السابقة"
               onClick={() => setPage(p => Math.max(1, p - 1))}
               disabled={page === 1}
               className="w-8 h-8 rounded-xl bg-white/60 border border-clay-accent/20 flex items-center justify-center text-clay-muted hover:bg-white disabled:opacity-40 transition-all"
@@ -203,6 +205,7 @@ export default function ManageStudentsPage() {
               {page} / {totalPages}
             </span>
             <button
+              aria-label="الصفحة التالية"
               onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
               className="w-8 h-8 rounded-xl bg-white/60 border border-clay-accent/20 flex items-center justify-center text-clay-muted hover:bg-white disabled:opacity-40 transition-all"
@@ -295,6 +298,7 @@ export default function ManageStudentsPage() {
 
                     <td className="py-3">
                       <button
+                        aria-label="عرض تفاصيل الطالب"
                         onClick={() => setSelectedStudent(s)}
                         className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs hover:bg-blue-100 transition-colors"
                         title="عرض التفاصيل"
@@ -337,7 +341,7 @@ export default function ManageStudentsPage() {
           <ClayCard hover={false} className="max-w-lg w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold" style={HEADING}>تفاصيل الطالب</h3>
-              <button onClick={() => setSelectedStudent(null)} className="w-8 h-8 rounded-lg bg-clay-accent/10 flex items-center justify-center text-clay-accent">✕</button>
+              <button aria-label="إغلاق تفاصيل الطالب" onClick={() => setSelectedStudent(null)} className="w-8 h-8 rounded-lg bg-clay-accent/10 flex items-center justify-center text-clay-accent">✕</button>
             </div>
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#A78BFA] to-[#7C3AED] flex items-center justify-center text-white text-2xl font-black" style={HEADING}>
