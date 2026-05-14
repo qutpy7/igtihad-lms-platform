@@ -292,7 +292,7 @@ describe('Admin Dashboard', () => {
 
         expect(res.status).toBe(200);
         expect(res.body).toHaveProperty('totalStudents');
-        expect(res.body).toHaveProperty('totalCourses');
+        expect(res.body).toHaveProperty('activeCourses');
         expect(res.body).toHaveProperty('totalRevenue');
     });
 
