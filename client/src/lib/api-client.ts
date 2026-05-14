@@ -3,7 +3,6 @@
    ═══════════════════════════════════════════════════ */
 import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosError } from 'axios'
 
-// @ts-ignore
 const apiUrl: string = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5000/api')
 
 export const apiClient: AxiosInstance = axios.create({
@@ -15,7 +14,6 @@ export const apiClient: AxiosInstance = axios.create({
 apiClient.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
         // 🔒 Security Fix: Only log in development, never log request body
-        // @ts-ignore
         if (import.meta.env.DEV) {
             console.log(`🚀 API: ${config.method?.toUpperCase()} ${config.url}`)
         }
@@ -26,7 +24,6 @@ apiClient.interceptors.request.use(
         return config
     },
     (error: AxiosError) => {
-        // @ts-ignore
         if (import.meta.env.DEV) {
             console.error('❌ API Request Error:', error.message)
         }

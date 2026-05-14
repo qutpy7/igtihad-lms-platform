@@ -19,7 +19,6 @@ export async function deleteFile(path: string, bucket: string = 'lesson-content'
 
 export function getPublicUrl(path: string | null, bucket: string = 'lesson-content'): string | null {
   if (!path) return null
-  // @ts-ignore
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
   return `${baseUrl.replace('/api', '')}/uploads/${path.split('/').pop()}`
 }
