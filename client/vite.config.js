@@ -26,5 +26,9 @@ export default defineConfig({
     watch: {
       usePolling: true, 
     },
-  }
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+  },
 })
