@@ -60,6 +60,7 @@ export function ToastProvider({ children }) {
             <p className="text-sm font-bold text-slate-800 flex-1">{t.message}</p>
             <button
               onClick={() => removeToast(t.id)}
+              aria-label="إغلاق"
               className="text-slate-400 hover:text-slate-600 transition-colors flex-shrink-0"
             >
               <X size={16} />
