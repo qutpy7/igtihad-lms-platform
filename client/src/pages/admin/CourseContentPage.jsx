@@ -351,7 +351,7 @@ export default function CourseContentPage() {
             {/* Modal Header - Fixed */}
             <div className="p-6 border-b border-clay-accent/10 flex items-center justify-between flex-shrink-0 relative z-10">
               <h3 className="text-xl font-bold" style={HEADING}>{editingLessonId ? 'تعديل الدرس' : 'إضافة درس جديد'}</h3>
-              <button type="button" onClick={() => setShowLessonModal(false)} className="text-clay-muted hover:text-red-500 transition-colors">✕</button>
+              <button type="button" aria-label="إغلاق" onClick={() => setShowLessonModal(false)} className="text-clay-muted hover:text-red-500 transition-colors">✕</button>
             </div>
 
             {/* Modal Body - Scrollable */}
@@ -512,7 +512,7 @@ export default function CourseContentPage() {
       {showUnitModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
           <ClayCard hover={false} className="w-full max-w-md shadow-2xl relative">
-            <button onClick={() => setShowUnitModal(false)} className="absolute top-4 left-4 text-clay-muted hover:text-red-500">✕</button>
+            <button onClick={() => setShowUnitModal(false)} aria-label="إغلاق" className="absolute top-4 left-4 text-clay-muted hover:text-red-500">✕</button>
             <h3 className="text-xl font-bold mb-6" style={HEADING}>{editingUnitId ? 'تعديل الوحدة' : 'إضافة وحدة جديدة'}</h3>
 
             <form className="flex flex-col gap-4" onSubmit={async (e) => {
@@ -571,7 +571,7 @@ export default function CourseContentPage() {
                 <h3 className="text-xl font-bold text-amber-800 flex items-center gap-2" style={HEADING}><HelpCircle size={24} /> محرر الأسئلة</h3>
                 <p className="text-sm text-amber-700 mt-1">درس: {quizBuilderLessonTitle}</p>
               </div>
-              <button onClick={() => setShowQuizBuilder(false)} className="w-8 h-8 rounded-lg bg-white/50 text-amber-800 flex items-center justify-center hover:bg-white transition-colors">✕</button>
+              <button onClick={() => setShowQuizBuilder(false)} aria-label="إغلاق" className="w-8 h-8 rounded-lg bg-white/50 text-amber-800 flex items-center justify-center hover:bg-white transition-colors">✕</button>
             </div>
 
             <div className="p-6 overflow-y-auto flex-1 bg-slate-50/50">
