@@ -72,10 +72,10 @@ export default function PublicLayout() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle mobile menu"
+            aria-label={mobileOpen ? "إغلاق القائمة" : "فتح القائمة"}
             className="md:hidden w-10 h-10 rounded-xl bg-clay-accent/10 flex items-center justify-center text-clay-accent"
           >
-            {mobileOpen ? '✕' : '☰'}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 

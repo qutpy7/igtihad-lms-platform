@@ -1,3 +1,3 @@
-## 2026-05-14 - Add ARIA Labels to Icon-Only Buttons
-**Learning:** Missing text alternative for icon-only buttons is a common accessibility issue. Adding `aria-label` provides necessary context for screen reader users without disrupting the visual layout.
-**Action:** Always add descriptive `aria-label` attributes to buttons and links that contain only icons to ensure proper accessibility.
+## 2024-05-20 - Arabic Localization for Screen Readers
+**Learning:** For apps primarily serving Arabic audiences, it's crucial to explicitly translate hidden accessibility attributes (like `aria-label`) from default English to Arabic to provide native context and avoid confusing screen reader users.
+**Action:** When adding missing `aria-label`s or modifying existing ones in this project, ensure the descriptive text is written in Arabic matching the UI context.
