@@ -1,3 +1,3 @@
-## 2026-05-14 - Add ARIA Labels to Icon-Only Buttons
-**Learning:** Missing text alternative for icon-only buttons is a common accessibility issue. Adding `aria-label` provides necessary context for screen reader users without disrupting the visual layout.
-**Action:** Always add descriptive `aria-label` attributes to buttons and links that contain only icons to ensure proper accessibility.
+## 2026-05-23 - Add ARIA Labels to Icon-Only Buttons
+**Learning:** Found that several icon-only buttons in the admin area lacked `aria-label` attributes, making them completely inaccessible to screen readers.
+**Action:** Always add Arabic `aria-label` attributes (like 'إغلاق', 'تعديل', 'حذف') to icon-only buttons (`<button>✕</button>`, `<button><Trash2 /></button>`, etc.) to ensure baseline accessibility compliance.
