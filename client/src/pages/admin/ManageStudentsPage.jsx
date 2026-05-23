@@ -295,6 +295,7 @@ export default function ManageStudentsPage() {
 
                     <td className="py-3">
                       <button
+                        aria-label="عرض التفاصيل"
                         onClick={() => setSelectedStudent(s)}
                         className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs hover:bg-blue-100 transition-colors"
                         title="عرض التفاصيل"
@@ -337,7 +338,7 @@ export default function ManageStudentsPage() {
           <ClayCard hover={false} className="max-w-lg w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold" style={HEADING}>تفاصيل الطالب</h3>
-              <button onClick={() => setSelectedStudent(null)} className="w-8 h-8 rounded-lg bg-clay-accent/10 flex items-center justify-center text-clay-accent">✕</button>
+              <button aria-label="إغلاق" onClick={() => setSelectedStudent(null)} className="w-8 h-8 rounded-lg bg-clay-accent/10 flex items-center justify-center text-clay-accent">✕</button>
             </div>
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#A78BFA] to-[#7C3AED] flex items-center justify-center text-white text-2xl font-black" style={HEADING}>
