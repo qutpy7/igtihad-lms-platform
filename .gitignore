@@ -13,3 +13,7 @@ yarn-error.log*
 .vercel
 .netlify
 server/coverage/
+test-results/
+playwright-report/
+server/coverage/
+server/logs/
