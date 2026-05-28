@@ -178,7 +178,7 @@ export default function ManageQuizzesPage() {
                 <ClayButton size="sm" variant="outline" onClick={() => setExpandedQuiz(isExpanded ? null : quiz.id)}>
                   {isExpanded ? 'إخفاء الأسئلة ▲' : `عرض الأسئلة ▼ (${questions.length})`}
                 </ClayButton>
-                <button onClick={() => handleDeleteQuiz(quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف"><Trash2 size={16} /></button>
+                <button onClick={() => handleDeleteQuiz(quiz.id)} aria-label="حذف الامتحان" className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف"><Trash2 size={16} /></button>
               </div>
 
               {isExpanded && (
@@ -200,7 +200,7 @@ export default function ManageQuizzesPage() {
                             ))}
                           </div>
                           <div className="flex gap-1 mt-2 justify-end">
-                            <button onClick={() => handleDeleteQuestion(q.id, quiz.id)} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100"><Trash2 size={16} /></button>
+                            <button onClick={() => handleDeleteQuestion(q.id, quiz.id)} aria-label="حذف السؤال" className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100"><Trash2 size={16} /></button>
                           </div>
                         </div>
                         )
