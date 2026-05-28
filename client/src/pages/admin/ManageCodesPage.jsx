@@ -84,7 +84,7 @@ export default function ManageCodesPage() {
               {generatedCodes.map((code, idx) => (
                 <div key={idx} className="flex items-center justify-between bg-white/70 rounded-clay-sm p-3 border border-clay-accent/10">
                   <span className="font-mono text-sm font-bold text-clay-accent">{code}</span>
-                  <button onClick={() => copyCode(code, idx)} className="text-sm hover:scale-110 transition-transform" title="نسخ">
+                  <button onClick={() => copyCode(code, idx)} className="text-sm hover:scale-110 transition-transform" title="نسخ" aria-label="نسخ">
                     {copiedId === idx ? <CheckCircle size={20} className="text-emerald-500" /> : '📋'}
                   </button>
                 </div>

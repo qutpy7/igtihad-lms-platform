@@ -274,14 +274,14 @@ export default function ManageCoursesPage() {
                         <button
                           onClick={() => handleEdit(course)}
                           className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors"
-                          title="تعديل الكورس"
+                          title="تعديل الكورس" aria-label="تعديل الكورس"
                         >
                           <Edit size={18} />
                         </button>
                         <button
                           onClick={() => handleDelete(course.id)}
                           className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors"
-                          title="حذف الكورس"
+                          title="حذف الكورس" aria-label="حذف الكورس"
                         >
                           <Trash2 size={18} />
                         </button>

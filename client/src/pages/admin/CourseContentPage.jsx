@@ -53,8 +53,8 @@ function SortableLesson({ lesson, onEdit, onDelete }) {
         <p className="text-xs text-clay-muted mt-0.5">{lesson.duration} • {typeText}</p>
       </div>
       <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button onClick={() => onEdit(lesson, isQuiz, isPdf)} className="w-8 h-8 rounded-lg bg-white text-blue-600 flex items-center justify-center shadow-sm hover:scale-105 transition-transform" title="تعديل الدرس"><Edit size={16} /></button>
-        <button onClick={() => onDelete(lesson)} className="w-8 h-8 rounded-lg bg-white text-red-600 flex items-center justify-center shadow-sm hover:scale-105 transition-transform" title="حذف الدرس"><Trash2 size={16} /></button>
+        <button onClick={() => onEdit(lesson, isQuiz, isPdf)} aria-label="تعديل الدرس" className="w-8 h-8 rounded-lg bg-white text-blue-600 flex items-center justify-center shadow-sm hover:scale-105 transition-transform" title="تعديل الدرس"><Edit size={16} /></button>
+        <button onClick={() => onDelete(lesson)} aria-label="حذف الدرس" className="w-8 h-8 rounded-lg bg-white text-red-600 flex items-center justify-center shadow-sm hover:scale-105 transition-transform" title="حذف الدرس"><Trash2 size={16} /></button>
       </div>
     </div>
   )
@@ -245,7 +245,7 @@ export default function CourseContentPage() {
                     setEditingUnitId(unit.id)
                     setUnitForm({ title: unit.title || '', thumbnail_url: unit.thumbnail_url || '' })
                     setShowUnitModal(true)
-                  }} className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors" title="تعديل الوحدة"><Edit size={16} /></button>
+                  }} aria-label="تعديل الوحدة" className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors" title="تعديل الوحدة"><Edit size={16} /></button>
                   <button onClick={async () => {
                     const ok = await confirm({ title: 'حذف الوحدة', message: `هل أنت متأكد من حذف وحدة "${unit.title}" وكل محتوياتها؟`, confirmText: 'حذف', danger: true })
                     if (!ok) return
@@ -254,7 +254,7 @@ export default function CourseContentPage() {
                       toast.success('تم حذف الوحدة')
                       loadData()
                     } catch (err) { toast.error('خطأ في الحذف: ' + err.message) }
-                  }} className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف الوحدة"><Trash2 size={16} /></button>
+                  }} aria-label="حذف الوحدة" className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="حذف الوحدة"><Trash2 size={16} /></button>
                 </div>
               </div>
 
@@ -351,7 +351,7 @@ export default function CourseContentPage() {
             {/* Modal Header - Fixed */}
             <div className="p-6 border-b border-clay-accent/10 flex items-center justify-between flex-shrink-0 relative z-10">
               <h3 className="text-xl font-bold" style={HEADING}>{editingLessonId ? 'تعديل الدرس' : 'إضافة درس جديد'}</h3>
-              <button type="button" onClick={() => setShowLessonModal(false)} className="text-clay-muted hover:text-red-500 transition-colors">✕</button>
+              <button type="button" onClick={() => setShowLessonModal(false)} aria-label="إغلاق" className="text-clay-muted hover:text-red-500 transition-colors">✕</button>
             </div>
 
             {/* Modal Body - Scrollable */}
@@ -512,7 +512,7 @@ export default function CourseContentPage() {
       {showUnitModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
           <ClayCard hover={false} className="w-full max-w-md shadow-2xl relative">
-            <button onClick={() => setShowUnitModal(false)} className="absolute top-4 left-4 text-clay-muted hover:text-red-500">✕</button>
+            <button onClick={() => setShowUnitModal(false)} aria-label="إغلاق" className="absolute top-4 left-4 text-clay-muted hover:text-red-500">✕</button>
             <h3 className="text-xl font-bold mb-6" style={HEADING}>{editingUnitId ? 'تعديل الوحدة' : 'إضافة وحدة جديدة'}</h3>
 
             <form className="flex flex-col gap-4" onSubmit={async (e) => {
@@ -571,7 +571,7 @@ export default function CourseContentPage() {
                 <h3 className="text-xl font-bold text-amber-800 flex items-center gap-2" style={HEADING}><HelpCircle size={24} /> محرر الأسئلة</h3>
                 <p className="text-sm text-amber-700 mt-1">درس: {quizBuilderLessonTitle}</p>
               </div>
-              <button onClick={() => setShowQuizBuilder(false)} className="w-8 h-8 rounded-lg bg-white/50 text-amber-800 flex items-center justify-center hover:bg-white transition-colors">✕</button>
+              <button onClick={() => setShowQuizBuilder(false)} aria-label="إغلاق" className="w-8 h-8 rounded-lg bg-white/50 text-amber-800 flex items-center justify-center hover:bg-white transition-colors">✕</button>
             </div>
 
             <div className="p-6 overflow-y-auto flex-1 bg-slate-50/50">
@@ -609,7 +609,7 @@ export default function CourseContentPage() {
                         ))}
                       </div>
                       <div className="flex gap-2 mt-4 justify-end pt-4 border-t border-slate-100">
-                        <button onClick={() => handleDeleteQuestion(q.id)} className="flex items-center gap-1 text-sm px-3 py-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"><Trash2 size={14} /> حذف</button>
+                        <button onClick={() => handleDeleteQuestion(q.id)} aria-label="حذف السؤال" className="flex items-center gap-1 text-sm px-3 py-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"><Trash2 size={14} /> حذف</button>
                       </div>
                     </div>
                   ))}

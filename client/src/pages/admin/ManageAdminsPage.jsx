@@ -82,7 +82,7 @@ export default function ManageAdminsPage() {
                       <button 
                         onClick={() => handleDemote(admin.id)}
                         className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
-                        title="سحب الصلاحيات"
+                        title="سحب الصلاحيات" aria-label="سحب الصلاحيات"
                       >
                         <Trash2 size={18} />
                       </button>
