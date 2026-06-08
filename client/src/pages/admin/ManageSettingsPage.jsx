@@ -119,7 +119,8 @@ export default function ManageSettingsPage() {
                   <span className="font-medium text-clay-foreground">{cat}</span>
                   <button 
                     onClick={() => handleRemoveCategory(cat)}
-                    className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    aria-label="حذف الفئة"
+                    className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:outline-none"
                   >
                     <Trash2 size={18} />
                   </button>
@@ -156,7 +157,8 @@ export default function ManageSettingsPage() {
                   <span className="font-medium text-clay-foreground">{loc}</span>
                   <button 
                     onClick={() => handleRemoveLocation(loc)}
-                    className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    aria-label="حذف المحافظة"
+                    className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:outline-none"
                   >
                     <Trash2 size={18} />
                   </button>
