@@ -6,7 +6,7 @@ import { apiClient } from '../../lib/api-client'
 import ClayCard from '../../components/ui/ClayCard'
 import ClayButton from '../../components/ui/ClayButton'
 import ClayInput from '../../components/ui/ClayInput'
-import { Mail, Lock, Eye, EyeOff, Loader2 } from 'lucide-react'
+import { Mail, Lock, Loader2 } from 'lucide-react'
 
 const HEADING = { fontFamily: 'Liftaswash, Nunito, Cairo, sans-serif' }
 
@@ -15,7 +15,6 @@ export default function LoginPage() {
   const { user, profile, signIn } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const [serverStatus, setServerStatus] = useState('checking') // 'online', 'offline', 'checking'
@@ -134,20 +133,12 @@ export default function LoginPage() {
               <ClayInput
                 label="كلمة المرور"
                 placeholder="••••••••"
-                type={showPassword ? 'text' : 'password'}
+                type="password"
                 icon={<Lock size={18} />}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute left-4 top-9 text-clay-muted text-sm hover:text-clay-accent transition-colors"
-                aria-label={showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
-              >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
             </div>
 
             <div className="flex justify-end">

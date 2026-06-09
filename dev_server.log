@@ -1,0 +1,11 @@
+
+> client@0.0.0 dev /app/client
+> vite
+
+
+  VITE v5.4.21  ready in 276 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.0.2:5173/
+12:47:54 PM [vite] hmr update /src/pages/auth/LoginPage.jsx, /src/index.css
+12:49:39 PM [vite] hmr update /src/pages/auth/LoginPage.jsx, /src/index.css
