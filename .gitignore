@@ -13,3 +13,11 @@ yarn-error.log*
 .vercel
 .netlify
 server/coverage/
+# Playwright and test artifacts
+playwright-report/
+test-results/
+server/coverage/
+server/logs/
+
+# Optional scratching
+test-clayinput.js
