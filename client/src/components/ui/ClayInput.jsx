@@ -1,4 +1,5 @@
-import React, { useId } from 'react'
+import React, { useId, useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
 
 export default function ClayInput({
   placeholder = '',
@@ -20,6 +21,9 @@ export default function ClayInput({
   const autoId = useId()
   const inputId = props.id || (label ? `input-${autoId}` : undefined)
   const errorId = error ? `error-${autoId}` : undefined
+  const isPasswordField = type === 'password'
+  const [showPassword, setShowPassword] = useState(false)
+  const actualType = isPasswordField ? (showPassword ? 'text' : 'password') : type
 
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
@@ -41,7 +45,7 @@ export default function ClayInput({
         )}
         <input
           id={inputId}
-          type={type}
+          type={actualType}
           name={name}
           placeholder={placeholder}
           value={value}
@@ -59,9 +63,20 @@ export default function ClayInput({
             focus:bg-white focus:ring-4 focus:ring-clay-accent/20 focus:outline-none
             transition-all duration-200
             ${icon ? 'pr-12' : ''}
+            ${isPasswordField ? 'pl-12' : ''}
             ${error ? 'ring-2 ring-red-400' : ''}
           `}
         />
+        {isPasswordField && (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-clay-muted text-sm hover:text-clay-accent transition-colors focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:outline-none rounded-md"
+            aria-label={showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        )}
       </div>
       {error && (
         <span id={errorId} role="alert" className="text-xs font-medium text-red-500">
