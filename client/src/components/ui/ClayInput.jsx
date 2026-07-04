@@ -1,4 +1,5 @@
-import React, { useId } from 'react'
+import React, { useId, useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
 
 export default function ClayInput({
   placeholder = '',
@@ -16,10 +17,15 @@ export default function ClayInput({
   'aria-describedby': ariaDescribedby,
   ...props
 }) {
+  const [showPassword, setShowPassword] = useState(false)
+
   // ✅ Auto-generate unique id for label<->input association
   const autoId = useId()
   const inputId = props.id || (label ? `input-${autoId}` : undefined)
   const errorId = error ? `error-${autoId}` : undefined
+
+  const isPassword = type === 'password'
+  const currentType = isPassword ? (showPassword ? 'text' : 'password') : type
 
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
@@ -41,7 +47,7 @@ export default function ClayInput({
         )}
         <input
           id={inputId}
-          type={type}
+          type={currentType}
           name={name}
           placeholder={placeholder}
           value={value}
@@ -59,9 +65,20 @@ export default function ClayInput({
             focus:bg-white focus:ring-4 focus:ring-clay-accent/20 focus:outline-none
             transition-all duration-200
             ${icon ? 'pr-12' : ''}
+            ${isPassword ? 'pl-12' : ''}
             ${error ? 'ring-2 ring-red-400' : ''}
           `}
         />
+        {isPassword && (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-clay-muted hover:text-clay-foreground focus-visible:ring-2 focus-visible:ring-clay-accent/50 focus:outline-none rounded-md transition-colors"
+            aria-label={showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        )}
       </div>
       {error && (
         <span id={errorId} role="alert" className="text-xs font-medium text-red-500">
