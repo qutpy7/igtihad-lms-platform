@@ -5,3 +5,7 @@
 ## 2026-05-15 - Dynamic ARIA Labels for Stateful Icon-Only Buttons
 **Learning:** Icon-only stateful toggle buttons (like password visibility toggles) must use dynamic ARIA labels that reflect their *current* action state in Arabic (e.g., 'إخفاء كلمة المرور' vs 'إظهار كلمة المرور'), rather than a static label. This is crucial for screen readers to accurately convey the action that will occur upon activation.
 **Action:** When implementing icon-only buttons that toggle state, ensure the `aria-label` dynamically updates based on the current state.
+
+## 2026-07-05 - Native Stateful UX Patterns in Core Components
+**Learning:** When a common stateful UX pattern (like a show/hide password toggle) is required on multiple pages, integrating it natively into the core reusable component library (e.g., `ClayInput`) prevents duplicate logic, ensures consistent accessibility across the application, and simplifies parent components.
+**Action:** Always check if a UX pattern being added manually to a page component should actually be a built-in feature of a core UI component, especially if it relates to accessibility or standard form behaviors.
