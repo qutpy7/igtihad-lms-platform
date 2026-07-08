@@ -89,3 +89,4 @@ Error: Only images and PDF files are allowed!
     at SBMH.push (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\streamsearch\lib\sbmh.js:104:16)
     at Multipart._write (D:\الملفات اللي كانت علي ويندوز\موقع الاستاذ احمد 2 - Copy\lms-platform\server\node_modules\busboy\lib\types\multipart.js:567:19)
 [2026-05-04 05:38:28] ERROR: POST /api/upload {"service":"igtihad-api","method":"POST","url":"/api/upload","status":500,"duration":"3ms"}
+[2026-07-08 13:12:02] ERROR: GET /api/public/stats {"service":"igtihad-api","method":"GET","url":"/api/public/stats","status":500,"duration":"8ms"}
